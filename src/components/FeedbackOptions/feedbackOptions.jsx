@@ -1,20 +1,25 @@
 import PropTypes from 'prop-types';
+import React from 'react';
+import css from './feedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-    <div>
-        {options.map(option => (
-            <button
-                type="button"
-                key={option}
-                onClick={() => onLeaveFeedback(option)}>
-                   {option}
+    return (
+        <div>
+      {options.map((option) => (
+          <button
+              className={css.buttonStyle}
+              type='button'
+              key={option}
+              onClick = {() => onLeaveFeedback(option)}>
+              {option}
             </button>
         ))}
-    </div>
+        </div>
+    )
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
